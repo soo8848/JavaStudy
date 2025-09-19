@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+    <h1>register.jsp</h1>
+	<h2>회원가입</h2>
+	<form action="registerAction" method="post">
+		<div>
+			id: <input name="id" type="text" required/>
+		</div>
+		<div>
+			pw: <input name="pw" type="password" required/> <span></span>
+		</div>
+		<div>
+			pwCheck: <input type="password" required/>
+		</div>
+		<div>
+			name: <input name="nickName" type="text" required/>
+		</div>
+		<div>
+			gender: <input type="radio" name="gender" value="m">M
+			<input type="radio" name="gender" value="f">F
+		</div>
+		<div>
+		<select name="year">
+			<option></option>
+		</select> 년
+		<select name="month">
+			
+		</select> 월
+		<select name="day">
+			
+		</select> 일
+		</div>
+		<div>
+			<input type="submit" value="회원가입">
+		</div>
+	</form>
+</body>
+</html>

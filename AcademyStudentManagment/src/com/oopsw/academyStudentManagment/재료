@@ -1,0 +1,53 @@
+import java.sql.*;
+
+public class LectureSearch {
+
+    public static void main(String[] args) {
+        // 예시 입력값 (사용자 입력을 받을 때 이 변수에 값이 들어감)
+        String level = null;    // 예: "초급" 또는 null
+        String grade = null;    // 예: "1학년" 또는 null
+        String subject = null;  // 예: "수학" 또는 null
+
+        String url = "jdbc:oracle:thin:@localhost:1521:xe";
+        String user = "your_user";
+        String password = "your_password";
+
+        String sql = "SELECT LECTURE_NUM, LECTURE_GRADE, TEACHER, SUBJECT, LECTURE_LEVEL, LECTURE_DAY, LECTURE_TIME " +
+                     "FROM LECTURE " +
+                     "WHERE (? IS NULL OR LECTURE_LEVEL = ?) " +
+                     "AND (? IS NULL OR LECTURE_GRADE = ?) " +
+                     "AND (? IS NULL OR SUBJECT = ?)";
+
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            // 바인드 변수 설정
+            ps.setString(1, level); // ?1 → level IS NULL
+            ps.setString(2, level); // ?2 → LECTURE_LEVEL = level
+
+            ps.setString(3, grade); // ?3 → grade IS NULL
+            ps.setString(4, grade); // ?4 → LECTURE_GRADE = grade
+
+            ps.setString(5, subject); // ?5 → subject IS NULL
+            ps.setString(6, subject); // ?6 → SUBJECT = subject
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                System.out.println(
+                        rs.getInt("LECTURE_NUM") + ", " +
+                        rs.getString("LECTURE_GRADE") + ", " +
+                        rs.getString("TEACHER") + ", " +
+                        rs.getString("SUBJECT") + ", " +
+                        rs.getString("LECTURE_LEVEL") + ", " +
+                        rs.getString("LECTURE_DAY") + ", " +
+                        rs.getString("LECTURE_TIME")
+                );
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+//개요 // UI , 클래스 다이어그램 , 산출물 회고

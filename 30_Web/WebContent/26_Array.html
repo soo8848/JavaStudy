@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+	var a1=[];
+	let a2=[];
+	var a3=new Array();
+	let a4=new Array();
+	
+	var scores=[40, 50, 77];
+	for (var i = 0; i <scores.length; i++) {
+		console.log(scores[i]);
+	}
+	scores[scores.length] = 99;
+	scores[1] = 88;
+	scores[10] = 88;
+	//JS는 empty값까지 다 가져오기 때문에 for ( in ) 을 쓴다. 키 대비 값을 가져오는 것. 일종의 조건을 주는 것. 키가 있는 키값만 가져와라~
+	for ( var k in scores) {
+		console.log(k, scores[k]); // 내부적으로 오버로딩을 하고 있다.
+	}
+	a3.push(1);
+	a3.push([10, 20, 30]); // .push배열 로 집어넣으면 2차월 배열로 쓸 수 있다!
+	a3.pop(); //  <- 자바 메모리 스택이랑 비슷하다.
+	
+	var scores2=[
+	             ["국어",10], ["영어",10], [30, "과학"] //이런식으로 거꾸로 넣을수가 없는게 이런 처리 코드는 UI에서 처리.
+	]; // JS는 타입의 경계가 없다!
+	
+	//배열이 필요한 요구사항이라면 지금처럼 쓰면되는데 좋게 말해서 가변적인거고 안좋은거면 인덱스 값 사이에 빈값이 들어가는거고 그래서 키 대비 값 즉, 키값을 가져오는 for in을 쓰는거다. 문법이나 api는 직접 해봐야돼. 찍어보는게 중요해.
+	
+</script>
+</body>
+</html>

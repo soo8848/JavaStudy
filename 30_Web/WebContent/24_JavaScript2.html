@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+//같은 자료형, 같은 패턴, N개일떄
+//국어,영어,수학 (등) 점수를 입력 받아서 
+//각 점수와 총점 평균을 확인
+//김재욱
+let inputSubject = ["국어","영어","수학","(등)"]; //{"국어","영어","수학"} => 객체
+let inputScore = [50,100,150,200];
+let sum=0;
+let mean=0;
+let subjectText = "";
+let scoreText = "";
+
+for(let subject of inputSubject){
+	console.log("과목: ",subject);
+	subjectText += subject + " ";
+}
+
+for(let score of inputScore){
+	console.log("점수: ",score);
+	scoreText += score + " ";
+	sum += score;
+}
+
+console.log("총점:", sum);
+
+mean = sum / inputScore.length;
+console.log("평균:", mean);
+
+document.write("<h1>"+"각 과목명:"+subjectText+"</h1>");
+document.write("<h1>"+"각 점수ㅇ:"+scoreText+"</h1>");
+document.write("<h2>"+"점수 총합:"+sum+"</h2>");
+document.write("<h2>"+"점수 평균:"+mean+"</h2>");
+</script>
+</head>
+<body>
+</body>
+</html>

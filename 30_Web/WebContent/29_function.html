@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<script type="text/javascript">
+		console.log(1234);
+		console.log(1234, "jeon", ["A"], {name:"홍길동"});
+		//JS는 overloading이 아니라 무조건 override니까 매개변수가 있는데도 없는 상황때의 조건을 줘야되는구나... undefined상황
+		var u1 = function(){
+			console.log(u1);
+		}
+		// TS에서는 오버로딩 문법이 없다. 오버 라이딩은 있음.		
+		var u1 = function(name){
+			console.log(u1, name);
+		}
+		u1(); // <- 논리적으론 매개변수가 없는 애가 실행되어야 하지만 (name)이 실행된다...
+		//시간을 입력 받아서 해당 메세지를 출력 - JS에서 매개인자 변수가 필요없는데 굳이 넣는 이유 - 가독성
+		var timeMessage = function(inputTime){
+			//
+			if(arguments.length >=2) // 사실 입력값이 number인지 확인해야되는데 귀찮으니 패스..
+				inputTime = arguments[arguments.length-1]; // 맨 마지막거 선택하는법
+			if(typeof inputTime == 'undefined')
+				inputTime = 9; // 코드 길어지니까 현재시간인 9시 입력
+			return inputTime+" 시 입니다.";
+		}
+		console.log(timeMessage(10));	//정식 코드
+		console.log(timeMessage()); //기본처리
+		console.log(timeMessage(1,2,3,4,5)); // 여러개가 들어오면 첫번째 것만 쓴다. ex) 1 
+		 //  ㄴ 그러면 중간에 있는거나 맨 마지막거를 쓰고 싶다면? inputTime = arguments[arguments.length-1];
+		console.log(console.log);	//ƒ log() { [native code] } native code는 알려줄 수없다는 느낌.
+		console.dir(console.log); //f dir() <- 그냥 해줘
+	</script>
+</body>
+</html>

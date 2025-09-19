@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <button id="btn">눌러보세요</button>
+
+  <script>
+  // 아래에 선언 해야된다는 파
+    // 버튼 요소가 이미 DOM에 만들어진 상태에서 실행됨
+    document.getElementById("btn").addEventListener("click", () => {
+      alert("버튼 클릭됨!");
+    });
+  </script>
+</body>
+
+</html>

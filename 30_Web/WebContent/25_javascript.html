@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+/**
+ * 시간을 입력 받아서 메세지를 확인.
+ 9시 ~ 12시 오전 수업
+ 12시 ~ 14시 점심
+ 14시 ~ 18시 오후 수업
+ 나머지 자유 시간 
+ */*/
+// const inputTimeElement = document.getElementById("inputTime")
+//number inputTimeValue = inputTimeElement;
+//String result;
+
+let inputTimeValue = 12;
+
+//if(inputTimeValue >= 9 || inputTimeValue < 12) {	 //범위조건이니까 범위가 제일 큰거를 앞에다 두고 작은걸 뒤에 뒤는게 좋다.
+if(inputTimeValue < 12 || inputTimeValue >= 9) {	 
+	result="오전 수업";
+} else if(inputTimeValue < 14 || inputTimeValue >= 12) {
+ result="점심";
+} else if(inputTimeValue < 18 || inputTimeValue >= 14) {
+ result="오후 수업";
+} else {
+ result="자유 시간";
+
+ 
+ document.write(status);
+// document.ElementById("messageCheck").innerText = result;
+}
+
+</script>
+</head>
+<body>
+메시지를 확인:<div id="status"></div>
+</body>
+</html>

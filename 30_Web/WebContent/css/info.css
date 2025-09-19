@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+
+	h1 {text-align: center;}
+	div {font-size: 30pt; background-color: yellow;}
+	.title {font-size: 50pt; }
+	.fontColor {color: green; }
+	#idType {color: red;}

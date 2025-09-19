@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+	// 1. 클래스 없이도 객체를 생성할 수 있다.
+	// 2. 데이터만 주로 쓸 뿐이지 {}로 만든건 내부적으로 메소드를 다시 재정의할 수 있다.
+	// 애랑 애랑 비교하고 같구나~ 다르구나~ 인정하고 넘어가. 왜자꾸 꼬리잡고 물고 늘어져. 생각을 하라고해서 왜하라고 하는거까지는 좋은데 예측하는것도 종흔데 막상 들어오는게 되네. 되는 상황을 이해하는게 중요한거지. 컴파일 때문에 안되는거를 난 왜 안된다고 생각했는데 되는거야? 라고 꼬리 잡으면 안된다는 거야. 기본에 충실해서 원리를 이해해야. 빨리빨리 적응한다.
+			
+	
+	// 학생 정보를 입력 - 이름, 성적
+	let name = "홍길동";
+	let score = 100;
+
+	let s1 = ["홍길동", 100];
+	let s2 = [100, "홍길동"]; // 순서에 의존하므로 의미 있는 접근이 어렵다.
+
+	// 객체 예시 (속성명으로 접근 가능)
+	var student1 = { name: "이순신", score: 50 };
+	let student2 = { score: 70, name: "세종대왕" };
+	let student3 = { name: "전혜영", toString:function(){
+		return this.name;
+	} };
+	student3.score=1000; // JS의 특징으로 컴파일을 안하니까 너가 마음대로 써~ 이런 느낌.
+
+	for ( var k in student3) {
+//		console.log(k); //toString도 키임 ㅋㅋ :function(){...}이 키값
+//		console.log(student3[k]);	
+//		console.log(typeof student3[k]);
+		if(typeof student3[k] != 'function')//typeof을 쓰는 이유을 알아야돼. 원하지 않는 타입은 이렇게 빼야돼. <- 근데 왜 뺀거야? 졸아서 못들었어
+			console.log(student3[k]);
+	}
+	
+// 초기화변수가 존재하면 for 존재 안하면 while
+// 상황을 이해 똑같은 객체라 하더라도 자바에서는 무조권 클래스가 존재해야돼요. JS는 클래스가 존재하지 않는다는거는 가변적으로 쓸 수 있다. 단점은 어떤 애가 들어오는지 모른다. 그러면 어떻게 해야된다? 내용체크를 해야된다.
+	
+//	console.log(student1);               // {name: "이순신", score: 50}
+//	console.log(student2.name, student2.score); // "세종대왕", 70
+//	console.log(student3.toString());    // "이름변경"
+</script>
+</body>
+</html>

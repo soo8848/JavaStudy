@@ -1,0 +1,39 @@
+<!-- 지연우 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="event.js" type="text/javascript">
+</script>
+</head>
+<body>
+<!-- 두수를 입력받아 구구단을 출력하는 코드이다.
+두수를 입력받을때 -->
+	<select></select>
+	<select></select>
+	<button>리셋</button>
+	<div></div>
+	<script type="text/javascript">
+		let selectList = document.querySelectorAll("select");
+		//버튼 태그가 들어간게 아니라 HTML버튼E이라는 객체가 반환됨 . -> 자바스크립트의 프로토타입 체인 상에서 HTMLButtonElement → HTMLElement → Element → Node → EventTarget → Object순서로 상속
+		let reset = document.querySelector("button");
+		reset.onclick = function(){
+			actionReset();
+		}
+		// 이쯤에서 옵션에서 번호 선택 했을떄 구구단 반환 메시지 만드는 객체 반환
+		optionNum(2,selectList[0], "start");
+		
+		//두수를 입력해야되는데 처음에 두번째 부터 입력할 수 있으니 그걸 방지하기 위해 첫번째 수에 디폴트값을 주고 그 값을 변경해야지 두번째 수(selectList[1])이 보이게 하는 것이다.
+		selectList[0].onchange = function(){
+			optionNum(selectList[0].value, selectList[1], "end");
+		}
+		
+		// 변경을 감지
+		selectList[1].onchange = function(){
+			//반환되는 것은 HTMLDivElement 객체예요. → 변수에 넣지 않아도 바로 접근 가능
+			document.querySelector("div").innerHTML = multiplicationTable(selectList[0].value, selectList[1].value);
+		}
+	</script>
+</body>
+</html>
